@@ -9,7 +9,7 @@ interface FloatButtonProps extends TouchableOpacityProps {
 
 export function FloatButton({icon, ...rest }: FloatButtonProps) {
   return (
-    <TouchableOpacity className="px-8 py-4 bg-gray-600 rounded-full absolute bottom-4 right-4 gap-1 flex-row items-center" { ...rest}>
+    <TouchableOpacity className="px-6 py-4 bg-gray-600 rounded-full absolute bottom-4 right-4 gap-2 flex-row items-center" { ...rest}>
       { icon &&
         <MaterialIcons name={icon} size={22} color={colors.orange[500]} activeOpacity={0.7} />
       }
