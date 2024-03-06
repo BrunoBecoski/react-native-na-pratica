@@ -13,8 +13,11 @@ export function Ingredient(
 ) {
   return (
     <Pressable style={[styles.container, selected && styles.selected]} {...rest}>
-      <Image style={styles.image} source={require('@/assets/tomato.png')}/>
-      <Text style={styles.title}>Tomate</Text>
+      <Image 
+        style={styles.image}
+        source={{ uri: image }} />
+      
+      <Text style={styles.title}>{name}</Text>
     </Pressable>
   )
 }

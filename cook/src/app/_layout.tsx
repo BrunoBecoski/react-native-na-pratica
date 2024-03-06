@@ -7,6 +7,8 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 
+import { Loading } from "@/components/Loading";
+
 export default function Layout() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -15,7 +17,7 @@ export default function Layout() {
   });
 
   if (!fontsLoaded) {
-    return 
+    return <Loading />
   }
 
   return fontsLoaded ? 
