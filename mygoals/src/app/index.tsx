@@ -1,9 +1,14 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+
+import { Header } from "@/components/Header";
 
 export default function Home() {
   return (
-    <View className="flex-1 items-center justify-center">
-      <Text className="color-white text-8xl">MyGoals</Text>
+    <View className="flex-1 p-8">
+      <Header
+        title="Suas metas"
+         subtitle="Poupe hoje para colher os frutos amanhã"
+      />
     </View>
   )
 }
