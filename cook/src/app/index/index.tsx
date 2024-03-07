@@ -20,14 +20,14 @@ export default function Index() {
   }
 
   function handleClearSelected() {
-    Alert.alert("Limpar", "Deseja limpar tudo?", [
+    Alert.alert('Limpar', 'Deseja limpar tudo?', [
       { text: 'Não', style: 'cancel' },
       { text: 'Sim', onPress: () => setSelected([])}
     ]);
   }
 
   function handleSearch() {
-    router.navigate('/recipes');
+    router.navigate('/recipes/' + selected);
   }
 
   useEffect(() => {

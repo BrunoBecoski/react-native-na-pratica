@@ -1,5 +1,6 @@
-import { theme } from "@/theme";
 import { StyleSheet } from "react-native";
+
+import { theme } from "@/theme";
 
 export const styles = StyleSheet.create({
   container: {
@@ -14,5 +15,11 @@ export const styles = StyleSheet.create({
     marginTop: 22,
     fontFamily: theme.fonts.family.bold,
     fontSize: theme.fonts.size.heading.md,
-  }
+  },
+  recipes: {
+    padding: 32,
+  },
+  recipesContent: {
+    gap: 16,
+  },
 })
