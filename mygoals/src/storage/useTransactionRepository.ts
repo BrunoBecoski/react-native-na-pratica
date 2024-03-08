@@ -1,4 +1,4 @@
-import { useSQLiteContext } from "expo-sqlite/next";
+import { useSQLiteContext } from "expo-sqlite/next"
 
 type TransactionCreateDatabase = {
   amount: number
@@ -18,7 +18,7 @@ export function useTransactionRepository() {
   function findLatest() {
     try {
       return database.getAllSync<TransactionResponseDatabase>(
-        "SELECT* FROM transactions ORDER BY created_at DESC LIMIT 10"
+        "SELECT * FROM transactions ORDER BY created_at DESC LIMIT 10"
       )
     } catch (error) {
       throw error

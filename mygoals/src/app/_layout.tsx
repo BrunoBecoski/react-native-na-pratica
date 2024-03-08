@@ -10,7 +10,7 @@ import {
   OpenSans_600SemiBold,
 } from "@expo-google-fonts/open-sans";
 
-import { databaseInit } from "@/database/databaseInit";
+import { databaseInit } from "@/storage/databaseInit"
 import { colors } from "@/styles/colors";
 import "@/styles/global.css";
 import "@/libs/dayjs";

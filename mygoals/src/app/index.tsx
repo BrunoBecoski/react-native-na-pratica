@@ -4,8 +4,8 @@ import { Alert, Keyboard, View } from "react-native";
 import { useEffect, useRef, useState } from "react";
 
 import { Transactions, TransactionsTypes } from "@/components/Transactions";
-import { useGoalRepository } from "@/database/useGoalRepository";
-import { useTransactionRepository } from "@/database/useTransactionRepository";
+import { useGoalRepository } from "@/storage/useGoalRepository";
+import { useTransactionRepository } from "@/storage/useTransactionRepository";
 import { Goals, GoalsTypes } from "@/components/Goals";
 import { BottomSheet } from "@/components/BottomSheet";
 import { Header } from "@/components/Header";
@@ -57,8 +57,8 @@ export default function Home() {
 
   function fetchGoals() {
     try {
-      const response = mocks.goals;
-      // const response = useGoal.all();
+      // const response = mocks.goals;
+      const response = useGoal.all();
 
       setGoals(response);
     } catch (error) {
@@ -68,8 +68,8 @@ export default function Home() {
 
   function fetchTransactions() {
     try {
-      const response = mocks.transactions;
-      // const response = useTransaction.findLatest();
+      // const response = mocks.transactions;
+      const response = useTransaction.findLatest();
 
       setTransactions(
         response.map((item) => ({

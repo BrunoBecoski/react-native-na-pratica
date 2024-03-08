@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { Alert, Keyboard, View } from "react-native";
 import { router, useLocalSearchParams } from "expo-router";
 
-import { useTransactionRepository } from "@/database/useTransactionRepository";
+import { useTransactionRepository } from "@/storage/useTransactionRepository";
 import { TransactionTypeSelect } from "@/components/TransactionTypeSelect";
-import { useGoalRepository } from "@/database/useGoalRepository";
+import { useGoalRepository } from "@/storage/useGoalRepository";
 import { TransactionTypes } from "@/components/Transaction";
 import { Transactions } from "@/components/Transactions";
 import { currencyFormat } from "@/utils/currencyFormat";
@@ -46,10 +46,10 @@ export default function Details() {
   function fetchDetails() {
     try {
       if (goalId) {
-        const goal = mocks.goal;
-        // const goal = useGoal.show(goalId);
-        const transactions = mocks.transactions;
-        // const transactions = useTransaction.findByGoal(goalId);
+        // const goal = mocks.goal;
+        const goal = useGoal.show(goalId);
+        // const transactions = mocks.transactions;
+        const transactions = useTransaction.findByGoal(goalId);
 
         if (!goal || !transactions) {
           return router.back();
