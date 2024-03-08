@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { Transactions, TransactionsTypes } from "@/components/Transactions";
 import { useGoalRepository } from "@/database/useGoalRepository";
+import { useTransactionRepository } from "@/database/useTransactionRepository";
 import { Goals, GoalsTypes } from "@/components/Goals";
-import { BottomSheet } from "@/components/ButtonSheet";
+import { BottomSheet } from "@/components/BottomSheet";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
@@ -24,6 +25,7 @@ export default function Home() {
   const handleBottomSheetClose = () => bottomSheetRef.current?.snapToIndex(0);
 
   const useGoal = useGoalRepository();
+  const useTransaction = useTransactionRepository();
 
   function handleDetails(id: string) {
     router.navigate('/details/' + id);
@@ -45,6 +47,8 @@ export default function Home() {
 
       setName('');
       setTotal('');
+
+      fetchGoals();
     } catch (error) {
       Alert.alert('Erro', 'Não foi possível cadastrar.');
       console.log(error);
@@ -53,8 +57,8 @@ export default function Home() {
 
   function fetchGoals() {
     try {
-      // const response = useGoal.all();
       const response = mocks.goals;
+      // const response = useGoal.all();
 
       setGoals(response);
     } catch (error) {
@@ -65,6 +69,7 @@ export default function Home() {
   function fetchTransactions() {
     try {
       const response = mocks.transactions;
+      // const response = useTransaction.findLatest();
 
       setTransactions(
         response.map((item) => ({
